@@ -6,7 +6,6 @@ import dotenv from "dotenv";
 import authRouter from "./Routes/auth.js";
 
 dotenv.config();
-
 const app = express();
 const port = process.env.PORT || 8000;
 
@@ -24,12 +23,11 @@ mongoose.set("strictQuery", false);
 const connectDB = async () => {
   try {
     await mongoose.connect(process.env.MONGO_URL, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
+      // useNewUrlParser: true,
+      // useUnifiedTopology: true,
     });
     console.log("MongoDB database is connected");
   } catch (err) {
-    // console.log("MongoDB database connection failed", err);
     console.log(`MongoDB database connection failed, ${err}`);
   }
 };
